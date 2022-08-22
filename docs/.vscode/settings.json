@@ -1,0 +1,52 @@
+{
+    "eslint.run": "onType",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "volar.tsPlugin": true,
+    "cSpell.words": [
+      "composables",
+      "dasharray",
+      "dblclick",
+      "dragend",
+      "draggable",
+      "dragstart",
+      "focusring",
+      "hoverable",
+      "linecap",
+      "linejoin",
+      "nuxt",
+      "pointerdown",
+      "pointermove",
+      "pointerout",
+      "pointerover",
+      "pointerup",
+      "vite",
+      "vitejs",
+      "vitepress"
+    ],
+    "cSpell.ignorePaths": [
+      ".git",
+      ".vscode",
+      "node_modules",
+      "package.json",
+      "package-lock.json",
+      ".prettierrc",
+      ".eslintrc.js"
+    ],
+    "[typescript]": {
+      "editor.tabSize": 4,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[vue]": {
+      "editor.tabSize": 4,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[json]": {
+      "editor.tabSize": 4,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    }
+  }

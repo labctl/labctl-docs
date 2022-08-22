@@ -1,0 +1,31 @@
+{
+  "name": "labctl-docs",
+  "version": "0.0.0",
+  "description": "labctl web frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/labctl/labctl-docs.git"
+  },
+  "author": "Johann Kellerman <kellerza@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/labctl/labctl-docs/issues"
+  },
+  "homepage": "https://github.com/labctl/labctl-docs#readme",
+  "dependencies": {
+    "vitepress": "^1.0.0-alpha.4",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "naive-ui": "^2.32.2",
+    "sitemap-ts": "^0.2.7",
+    "v-network-graph": "^0.6.6"
+  }
+}
