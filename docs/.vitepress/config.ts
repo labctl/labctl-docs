@@ -1,4 +1,4 @@
-import { generateSitemap as sitemap } from 'sitemap-ts'
+import { generateSitemap as sitemap } from "sitemap-ts";
 
 export default {
   lang: "en-US",
@@ -10,11 +10,11 @@ export default {
 
   vite: {
     buildEnd: () => {
-      sitemap()
+      sitemap();
     },
   },
   themeConfig: {
-    logo: '/labctl1.svg',
+    logo: "/labctl1.svg",
     nav: [
       {
         text: "Guide",
@@ -29,19 +29,20 @@ export default {
       {
         text: "Examples",
         link: "/examples/",
-        activeMatch : "/examples/",
+        activeMatch: "/examples/",
       },
     ],
     sidebar: [
       {
         text: "Introduction",
         link: "/index/",
-        items:[
+        items: [
           { text: "What is labctl?", link: "/guide/what-is-labctl" },
           { text: "Getting Started", link: "/guide/getting-started" },
           { text: "Config Engine", link: "/guide/config-engine" },
+          { text: "Config Engine UI", link: "/guide/config-engine-ui" },
           { text: "Roadmap", link: "/guide/roadmap" },
-        ]
+        ],
       },
       {
         text: "Reference",
@@ -56,32 +57,26 @@ export default {
       {
         text: "Examples",
         link: "/examples/",
-        items: [
-          { text: "Basic Usage", link: "/examples/basic" },
-        ],
+        items: [{ text: "Basic Usage", link: "/examples/basic" }],
       },
-
     ],
 
     editLink: {
-      pattern: 'https://github.com/labctl/labctl-docs/edit/main/docs/:path',
-      text: 'Edit this page on GitHub'
+      pattern: "https://github.com/labctl/labctl-docs/edit/main/docs/:path",
+      text: "Edit this page on GitHub",
     },
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/labctl/labctl' }
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/labctl/labctl" }],
 
     footer: {
-      message: 'Released under the Apache 2.0 License.',
-      copyright: 'Copyright © 2022 Johann Kellerman'
+      message: "",
+      copyright: "Apache 2.0 | Copyright © 2022 Johann Kellerman",
     },
 
     algolia: {
-      appId: 'D1QY7C5MLV',
-      apiKey: '3e1c21b075bcc58d22669ba593c5957e',
-      indexName: 'labctl1'
+      appId: "D1QY7C5MLV",
+      apiKey: "3e1c21b075bcc58d22669ba593c5957e",
+      indexName: "labctl1",
     },
-
   },
 };

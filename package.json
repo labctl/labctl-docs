@@ -14,18 +14,21 @@
     "url": "git+https://github.com/labctl/labctl-docs.git"
   },
   "author": "Johann Kellerman <kellerza@gmail.com>",
-  "license": "ISC",
+  "license": "Apache 2",
   "bugs": {
     "url": "https://github.com/labctl/labctl-docs/issues"
   },
   "homepage": "https://github.com/labctl/labctl-docs#readme",
   "dependencies": {
+    "clipboard": "^2.0.11",
     "vitepress": "^1.0.0-alpha.4",
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "js-yaml": "^4.1.0",
     "naive-ui": "^2.32.2",
     "sitemap-ts": "^0.2.7",
-    "v-network-graph": "^0.6.6"
+    "v-network-graph": "^0.6.6",
+    "vue3-json-viewer": "^2.2.2"
   }
 }

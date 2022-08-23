@@ -5,24 +5,12 @@
     },
     "volar.tsPlugin": true,
     "cSpell.words": [
-      "composables",
-      "dasharray",
+      "containerlab",
       "dblclick",
-      "dragend",
-      "draggable",
-      "dragstart",
-      "focusring",
-      "hoverable",
-      "linecap",
-      "linejoin",
-      "nuxt",
-      "pointerdown",
-      "pointermove",
-      "pointerout",
-      "pointerover",
-      "pointerup",
-      "vite",
-      "vitejs",
+      "golang",
+      "tmpl",
+      "topo",
+      "vars",
       "vitepress"
     ],
     "cSpell.ignorePaths": [
@@ -48,5 +36,8 @@
       "editor.tabSize": 4,
       "editor.defaultFormatter": "esbenp.prettier-vscode",
       "editor.formatOnSave": true
-    }
+    },
+    "cSpell.ignoreWords": [
+
+    ]
   }

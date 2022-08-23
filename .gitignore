@@ -7,6 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Krita temp file
+*.kra~
+
 node_modules
 dist
 dist-ssr
