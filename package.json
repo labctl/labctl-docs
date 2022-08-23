@@ -14,7 +14,7 @@
     "url": "git+https://github.com/labctl/labctl-docs.git"
   },
   "author": "Johann Kellerman <kellerza@gmail.com>",
-  "license": "Apache 2",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/labctl/labctl-docs/issues"
   },
