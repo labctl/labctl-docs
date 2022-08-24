@@ -64,14 +64,14 @@ The `config send` command will render the templates and send the commands to the
 
 The following flags are available for the config commands
 
-| Flag               |      |     | Description                              |
-| :----------------- | ---- | --- | ---------------------------------------- |
-| `--topo`           | `-t` | ✔   | the topology file                        |
-| `--template-paths` | `-p` | ✔   | paths to search for templates (in order) |
-| `--template-list`  | `-l` | ✔   | template names to render                 |
-| `--filter`         | `-f` |     | nodes to include                         |
-| `--debug`          | `-d` |     | debug count, i.e. `-ddd` or `--debug=3`  |
-| `--settings`       |      |     | Settings file                            |
+| Flag               |      |     | Description                                   |
+| :----------------- | ---- | --- | --------------------------------------------- |
+| `--topo`           | `-t` | ✔   | the topology file                             |
+| `--template-paths` | `-p` | ✔   | paths to search for templates (in order)      |
+| `--template-list`  | `-l` | ✔   | template names to render                      |
+| `--filter`         | `-f` |     | nodes to include                              |
+| `--debug`          | `-d` |     | debug count, i.e. `-d`, `-ddd` or `--debug=3` |
+| `--settings`       |      |     | Settings file                                 |
 
 ## Examples
 

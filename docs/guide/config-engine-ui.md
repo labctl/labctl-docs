@@ -17,7 +17,11 @@ You can create layers of labels.
 The Config Engine UI can show you the magic variables that will be used to render a template.
 From here you can test these variables on templates.
 
-Consider the following topo file extract
+<script setup>
+    import MagicVars from '../.vitepress/components/magic_vars_ui.vue';
+</script>
+
+<magic-vars>
 
 ```yaml
  nodes:
@@ -31,8 +35,44 @@ Consider the following topo file extract
           - 1
 ```
 
-<script setup>
-    import MagicVars from '../.vitepress/components/magic_vars.vue';
-</script>
+</magic-vars>
 
-<magic-vars />
+## Execute Commands
+
+You can execute "commit", "compare" and "send" commands directly from the UI - you use exactly the same syntax as from the commandline.
+
+Config Engine related flags used on the commandline to serve the frontend
+
+| Flag               |      |     | Description                              |
+| :----------------- | ---- | --- | ---------------------------------------- |
+| `--topo`           | `-t` | ✔   | the topology file                        |
+| `--template-paths` | `-p` | ✔   | paths to search for templates (in order) |
+
+Flags available from within the UI to execute config commands
+
+| `--template-list`  | `-l` | ✔   | template names to render                      |
+| `--filter`         | `-f` |     | nodes to include                              |
+
+### Examples
+
+```
+compare -l bgp -f R1
+```
+
+will compare the template `bgp_<role>.tmpl` ONLY to node R1
+
+
+```
+commit -l bgp
+```
+
+will commit the template `bgp_<role>.tmpl` to all nodes in the topology
+
+
+```
+send -l show-route-table -f R1,R2
+```
+
+will send the template `show-route-table_<role>.tmpl` to node R1 and R2 only
+
+

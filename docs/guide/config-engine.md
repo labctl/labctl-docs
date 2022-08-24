@@ -92,33 +92,134 @@ The naming convention is shown below
 
 The template names are specific on the input using the `--template-names` / `-l` flags. The config engine supports deploying a list of templates.
 
+
+
 ## Magic Variables
 
-We've mentioned that link variables are included with the node variables, but lets dive into the detail of how variables are pre-processed before being passed to templates.
+We've mentioned that link variables are included with the node variables, but there are also a lot of pre-processing of you variables. Typically when a a variable is used as input (or even generated as output) of this pre-processing step, it starts with `clab_`
 
-The [Config Engine UI](/guide/config-engine-ui) is a great tool to visualize these
 
 ::: tip
-If you are more of a visual person, you can see this in action in the Config Engine UI - [serve]
+The [Config Engine UI](/guide/config-engine-ui) is a great tool to visualize these variables and will give you an output similar to what you see below
 :::
 
+Let's start with a summary of all known magic variables, or jump straight to the [examples](#magic-variable-examples)
 
-| variable               | Source | Description                                                |
-| ---------------------- | ------ | ---------------------------------------------------------- |
-| `clab_node`            | Topo   | The node name.                                             |
-| `clab_kind`            | Topo   | The node kind.                                             |
-| `clab_management_ipv*` | Docker | Only present in `containerlab` empty in `labctl`           |
-| `clab_role`            | ✨vars  | The role that will be used to determine the template file. |
-| `clab_links`           | ✨      | Populated with all the links                               |
-| `clab_nodes`           | ✨      | Populated with all the nodes in the topology               |
-| `clab_system_ip`       | vars   | from the topo file                                         |
+The following variables indicate the basic structure and are mostly assembled directly from the topology file
+
+| Node Variables         | Description                                                                                                                    |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| `clab_node`            | The node name. name.                                                                                                           |
+| `clab_kind`            | The node kind.                                                                                                                 |
+| `clab_management_ipv*` | When deployed you can get the management IPs. Currently only present in `containerlab` empty in `labctl`                       |
+| `clab_role`            | The role that will be used to determine the template file. If not specified in the `vars:` it will default to the node's kind. |
+| `clab_links`           | Populated with all the links connected to this node. The structure of the links can be seen below                              |
+| `clab_nodes`           | Populated with a dictionary of all the nodes in the topology                                                                   |
+
+On the nodes you can use the following input.
+
+| variable         | Source    | Description                                                                      |
+| ---------------- | --------- | -------------------------------------------------------------------------------- |
+| `clab_system_ip` | ✨optional | The loopback address of the system. If present it will generate `clab_link_ip's` |
 
 
-Each `clab_link` will have the following structure
+Each link in the  `clab_links` array will have the following structure:
 
-| variable         | Source | Description                                                   |
-| ---------------- | ------ | ------------------------------------------------------------- |
-| `clab_link_ip`   | ✨      | The link IP address                                           |
-| `clab_link_name` | ✨      | The link name                                                 |
-| `clab_far`       | ✨      | A dictionary with all the variables, but for the far-end node |
-| key 1..n         | Topo   | All the variables defined in the topo file                    |
+| variable         | Source    | Description                                                                                |
+| ---------------- | --------- | ------------------------------------------------------------------------------------------ |
+| `clab_link_ip`   | ✨optional | The link IP address. Can be a subnet or an array of two addresses.                         |
+| `clab_link_num`  | ✨optional | The link number, used if you have multiple links for the Link name and Link IP generation. |
+| `clab_link_name` | ✨         | The link name. If not specified it will be in the format `to_<far-end-node>`               |
+| `clab_far`       | ✨         | A dictionary with all the variables you find on a link, but for the far-end node           |
+| key 1..n         | Topo      | All the variables defined in the topo file                                                 |
+
+
+## Magic Variable Examples
+
+<script setup>
+    import MagicVarsCe from '../.vitepress/components/magic_vars_ce.vue';
+</script>
+
+<magic-vars-ce>
+
+<template #e1>
+
+In the most basic case, we can specify only a System IP as `clab_system_ip`. Config Engine generates three variables `clab_link_ip` and `clab_link_name` on each link.
+
+```yaml
+topology:
+  nodes:
+    pe1:
+      config:
+        vars:
+          clab_system_ip: 10.0.0.1/32
+    pe2:
+      config:
+        vars:
+          clab_system_ip: 10.0.0.2/32
+
+  links:
+    - endpoints: ["pe1:eth1", "pe2:eth1"]
+```
+
+</template>
+
+<template #e2>
+
+You can easily specify your own subnet on a link - `clab_link_ip` and each side of the link will get a value assigned.
+
+```yaml
+topology:
+  nodes:
+    pe1:
+      config:
+        vars:
+          clab_system_ip: 10.0.0.1/32
+    pe2:
+      config:
+        vars:
+          clab_system_ip: 10.0.0.2/32
+
+  links:
+    - endpoints: ["pe1:eth1", "pe2:eth1"]
+      vars:
+        clab_link_ip: 192.168.0.1/31
+```
+
+</template>
+
+<template #e3>
+
+You can have multiple links.
+
+```yaml
+topology:
+  nodes:
+    pe1:
+      config:
+        vars:
+          clab_system_ip: 10.0.0.1/32
+    pe2:
+      config:
+        vars:
+          clab_system_ip: 10.0.0.2/32
+
+  links:
+    - endpoints: ["pe1:eth1", "pe2:eth1"]
+      vars:
+        clab_link_ip: 192.168.0.1/31
+    - endpoints: ["pe1:eth2", "pe2:eth2"]
+      vars:
+        clab_link_num: 1
+    - endpoints: ["pe1:eth3", "pe2:eth3"]
+      vars:
+        clab_link_num: 2
+```
+
+</template>
+
+</magic-vars-ce>
+
+
+
+

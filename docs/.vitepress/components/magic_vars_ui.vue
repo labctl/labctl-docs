@@ -1,4 +1,7 @@
 <template>
+  <p>Consider the following topo file extract</p>
+  <slot />
+
   <p>
     The Config Engine will use the following variables to render the template
     for R4.

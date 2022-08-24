@@ -1,6 +1,7 @@
 import { generateSitemap as sitemap } from "sitemap-ts";
+import { defineConfig } from "vitepress";
 
-export default {
+export default defineConfig({
   lang: "en-US",
   title: "labctl",
   description: "Take control of your lab environment",
@@ -18,17 +19,17 @@ export default {
     nav: [
       {
         text: "Guide",
-        link: "/guide/what-is-labctl",
+        link: "/guide/",
         activeMatch: "/guide",
       },
       {
         text: "Reference",
-        link: "/reference/",
+        link: "/reference/config",
         activeMatch: "/reference/",
       },
       {
         text: "Examples",
-        link: "/examples/",
+        link: "/examples/basic",
         activeMatch: "/examples/",
       },
     ],
@@ -37,7 +38,7 @@ export default {
         text: "Introduction",
         link: "/index/",
         items: [
-          { text: "What is labctl?", link: "/guide/what-is-labctl" },
+          { text: "What is labctl?", link: "/guide/" },
           { text: "Getting Started", link: "/guide/getting-started" },
           { text: "Config Engine", link: "/guide/config-engine" },
           { text: "Config Engine UI", link: "/guide/config-engine-ui" },
@@ -79,4 +80,4 @@ export default {
       indexName: "labctl1",
     },
   },
-};
+});
