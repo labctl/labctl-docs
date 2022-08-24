@@ -50,8 +50,10 @@ Config Engine related flags used on the commandline to serve the frontend
 
 Flags available from within the UI to execute config commands
 
-| `--template-list`  | `-l` | ✔   | template names to render                      |
-| `--filter`         | `-f` |     | nodes to include                              |
+| Flag              |      |     | Description              |
+| :---------------- | ---- | --- | ------------------------ |
+| `--template-list` | `-l` | ✔   | template names to render |
+| `--filter`        | `-f` |     | nodes to include         |
 
 ### Examples
 
