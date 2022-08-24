@@ -38,6 +38,8 @@
 
 <script setup lang="ts">
 //import yaml from "js-yaml";
+import { JsonViewer } from "vue3-json-viewer";
+
 import { ref } from "vue";
 const combined = ref(true);
 

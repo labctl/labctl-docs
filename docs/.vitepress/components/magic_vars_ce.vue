@@ -60,6 +60,7 @@
 
 <script setup lang="ts">
 //import yaml from "js-yaml";
+import { JsonViewer } from "vue3-json-viewer";
 import { ref, computed, useSlots } from "vue";
 import * as example_data from "./magic_vars_examples";
 
