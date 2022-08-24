@@ -10,7 +10,6 @@
 : ${PKG_INSTALL_DIR:="/usr/bin/"}
 : ${REPO_NAME:="labctl/labctl"}
 : ${REPO_URL:="https://github.com/$REPO_NAME"}
-: ${PROJECT_URL:="https://github.com/$REPO_NAME"}
 
 # detectArch discovers the architecture for this system.
 detectArch() {
@@ -54,6 +53,10 @@ runAsRoot() {
   $CMD
 }
 
+curl_exists() {
+  type "curl" &>/dev/null
+}
+
 # verifySupported checks that the os/arch combination is supported
 verifySupported() {
   local supported="linux-amd64\nlinux-arm\nlinux-armv6\ndarwin-amd64\ndarwin-armv6"
@@ -63,8 +66,16 @@ verifySupported() {
     exit 1
   fi
 
-  if ! type "curl" &>/dev/null && ! type "wget" &>/dev/null; then
+  if ! curl_exists && ! type "wget" &>/dev/null; then
     echo "Either curl or wget is required"
+    exit 1
+  fi
+  if ! type "sed" &>/dev/null; then
+    echo "sed required"
+    exit 1
+  fi
+  if ! type "grep" &>/dev/null; then
+    echo "grep required"
     exit 1
   fi
 }
@@ -79,34 +90,38 @@ verifyOpenssl() {
   fi
 }
 
+# Get the latest release from github, parameter the full repo name labctl/labctl
+get_latest_release() {
+  local latest_url="https://api.github.com/repos/$1/releases/latest"
+  if curl_exists; then
+    curl --silent $latest_url | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+  else
+    wget -q $latest_url -O- | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+  fi
+}
+
 # setDesiredVersion sets the desired version either to an explicit version provided by a user
 # or to the latest release available on github releases
 setDesiredVersion() {
   if [ "x$DESIRED_VERSION" == "x" ]; then
     # when desired version is not provided
     # get latest tag from the gh releases
-    if type "curl" &>/dev/null; then
-      local latest_release_url=$(curl -s $REPO_URL/releases/latest | cut -d '"' -f 2)
-      TAG=$(echo $latest_release_url | cut -d '"' -f 2 | awk -F "/" '{print $NF}')
-      # tag with stripped `v` prefix
-      TAG_WO_VER=$(echo "${TAG}" | cut -c 2-)
-    elif type "wget" &>/dev/null; then
-      # get latest release info and get 5th line out of the response to get the URL
-      local latest_release_url=$(wget -q https://api.github.com/repos/$REPO_NAME/releases/latest -O- | sed '5q;d' | cut -d '"' -f 4)
-      TAG=$(echo $latest_release_url | cut -d '"' -f 2 | awk -F "/" '{print $NF}')
-      TAG_WO_VER=$(echo "${TAG}" | cut -c 2-)
-    fi
+    TAG=$(get_latest_release $REPO_NAME)
+    # tag with stripped `v` prefix
+    TAG_WO_VER=$(echo "${TAG}" | cut -c 2-)
   else
     TAG=$DESIRED_VERSION
     TAG_WO_VER=$(echo "${TAG}" | cut -c 2-)
 
-    if type "curl" &>/dev/null; then
-      if ! curl -s -o /dev/null --fail https://api.github.com/repos/$REPO_NAME/releases/tags/$DESIRED_VERSION; then
+    local desired_url="https://api.github.com/repos/$REPO_NAME/tags/$DESIRED_VERSION"
+
+    if curl_exists; then
+      if ! curl -s -o /dev/null --fail $desired_url; then
         echo "release $DESIRED_VERSION not found"
         exit 1
       fi
-    elif type "wget" &>/dev/null; then
-      if ! wget -q https://api.github.com/repos/$REPO_NAME/releases/tags/$DESIRED_VERSION; then
+    else
+      if ! wget -q $desired_url; then
         echo "release $DESIRED_VERSION not found"
         exit 1
       fi
@@ -158,10 +173,10 @@ downloadFile() {
   TMP_FILE="$TMP_ROOT/$ARCHIVE"
   SUM_FILE="$TMP_ROOT/checksums.txt"
   echo "Downloading $DOWNLOAD_URL"
-  if type "curl" &>/dev/null; then
+  if curl_exists; then
     curl -SsL "$CHECKSUM_URL" -o "$SUM_FILE"
     curl -SsL "$DOWNLOAD_URL" -o "$TMP_FILE"
-  elif type "wget" &>/dev/null; then
+  else
     wget -q -O "$SUM_FILE" "$CHECKSUM_URL"
     wget -q -O "$TMP_FILE" "$DOWNLOAD_URL"
   fi
