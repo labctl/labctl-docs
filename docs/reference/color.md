@@ -45,18 +45,29 @@ Wrong: <code>labctl color <span style="color:red">-d</span> ssh 10.0.0.1</code> 
 
 ## Colors
 
-Valid colors include: "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"
+Valid colors include: `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`.
+You can add the following prefixes to colors: `hi` - Highlight, `fg` - Foreground, `bg` - Background
 
-You can add the following strings to colors: "hi" - Highlight, "fg" - Foreground, "bg" - Background
+Valid styles include: `bold`, `faint`, `italic`, `blinkslow`, `blinkrapid`, `reversevideo`, `concealed`, `crossedout`
 
-Valid special colors include: "reset", "bold", "faint", "italic", "blinkslow", "blinkrapid", "reversevideo", "concealed", "crossedout"
+You can see a list of colors on how they are displayed on your terminal by using the --test flag
 
+```bash
+labctl color --test
+```
+
+![colors](./color-test.png)
+
+
+::: tip
+The screenshot was made on Microsoft's Windows Terminal. It supports all the colors and a blinking `blinkrapid`
+:::
 
 ## Labctl Settings
 
 You can provide your own color settings by creating `~/.labctl.yml` and adding regex/color pairs under the colorize key
 
-Labctl includes default settings, they are kept [here](https://github.com/labctl/labctl/blob/main/helpers/settings.yml) in case you want to propose updates, below an extract from settings
+Labctl includes default settings, they are kept [here](https://github.com/labctl/labctl/blob/main/helpers/settings.yml) in case you want to propose updates, below an extract from settings.
 
 ```yaml
 colorize:
@@ -76,4 +87,4 @@ colorize:
     color: yellow
 ```
 
-
+The setting are displayed when you run `labctl color --test` or when you add the debug flag `labctl -d color ...`

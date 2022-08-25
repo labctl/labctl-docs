@@ -77,7 +77,7 @@ Template files typically target nodes and not links, so link variables are added
 The role of the node points to the template that needs to be deployed on that node. Examples of roles can be leaves, spines or PEs, or CEs. If you have no specific roles in your topology, the bare minimum might be that you have different templates for different types (or kinds) of nodes.
 
 
-::: important
+::: tip
 The role is defined in the `clab_role` variable. It is optional, and by default this will be the node's `kind`.
 :::
 
