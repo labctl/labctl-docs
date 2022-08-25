@@ -234,7 +234,7 @@ testVersion() {
   if [ $USE_PKG == "true" ]; then
     BIN_INSTALL_DIR=$PKG_INSTALL_DIR
   fi
-  $BIN_INSTALL_DIR/$BINARY_NAME -v
+  $BIN_INSTALL_DIR/$BINARY_NAME version
   if [ "$?" = "1" ]; then
     echo "$BINARY_NAME not found. Is $BIN_INSTALL_DIR in your "'$PATH?'
     exit 1
