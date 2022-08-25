@@ -218,6 +218,36 @@ topology:
 
 </template>
 
+<template #e4>
+
+Link requires variables in pairs (one for each end of the link), but if you specify one, this will be used on both sides. (note the **port** below)
+
+Magic variables can be defined by the user, as in the **clab_link_ip** on link 1 and **clab_link_name** on link 2
+
+```yaml
+  nodes:
+    pe1:
+      config:
+        vars:
+          clab_system_ip: 10.0.0.1/32
+    pe2:
+      config:
+        vars:
+          clab_system_ip: 10.0.0.2/32
+
+  links:
+    - endpoints: ["pe1:eth1", "pe2:eth1"]
+      vars:
+        port: '1/1/c1/1'
+        clab_link_ip: 192.168.0.101/30
+    - endpoints: ["pe1:eth2", "pe2:eth2"]
+      vars:
+        port: ['1/1/c2/1', '1/1/c2/1']
+        clab_link_name: ['to_pe2_and_beyond', 'toPE1']
+```
+
+</template>
+
 </magic-vars-ce>
 
 
