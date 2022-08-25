@@ -6,7 +6,7 @@
 : ${USE_SUDO:="true"}
 : ${USE_PKG:="false"} # default --use-pkg flag value. will use tar.gz bin installation by default unless the default is changed to true
 : ${VERIFY_CHECKSUM:="false"}
-: ${BIN_INSTALL_DIR:=$(pwd)}
+: ${BIN_INSTALL_DIR:="/usr/bin/"} # $(pwd) -- but still asks for sudo pw :-(
 : ${PKG_INSTALL_DIR:="/usr/bin/"}
 : ${REPO_NAME:="labctl/labctl"}
 : ${REPO_URL:="https://github.com/$REPO_NAME"}
@@ -133,13 +133,13 @@ setDesiredVersion() {
 # if it needs to be changed.
 checkInstalledVersion() {
   if [[ -f "${BIN_INSTALL_DIR}/${BINARY_NAME}" ]]; then
-    local version=$("${BIN_INSTALL_DIR}/${BINARY_NAME}" -v | grep version | awk '{print $NF}')
+    local version=$("${BIN_INSTALL_DIR}/${BINARY_NAME}" version | grep version: | awk '{print $NF}')
     if [[ "v$version" == "$TAG" ]]; then
       echo "${BINARY_NAME} is already at ${DESIRED_VERSION:-latest ($version)}" version
       return 0
     else
       echo "A newer ${BINARY_NAME} ${TAG_WO_VER} is available."
-      echo "You are running labctl $version version"
+      echo "You are running labctl version $version"
       UPGR_NEEDED="Y"
       # check if stdin is open (i.e. capable of getting users input)
       if [ -t 0 ]; then
