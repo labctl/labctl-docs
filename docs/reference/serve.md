@@ -1,4 +1,4 @@
-# Labctl serve
+# Labctl serve reference
 
 <!--@include:  ../.vitepress/snippet/start-ui.md -->
 

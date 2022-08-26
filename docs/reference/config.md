@@ -2,9 +2,9 @@
 cli: labctl
 ---
 
-# labctl config reference
+# Labctl config reference
 
-## CLI Commands
+## CLI commands
 
 The CLI commands under `labctl config` allows you to interact with the [Config Engine](/guide/config-engine). It allows you to send commands to the router, render templates, or simply inspect one of the intermediate stages (variables & templates).
 
@@ -60,7 +60,7 @@ The `config commit` command will render the templates and commit the configurati
 
 The `config send` command will render the templates and send the commands to the target node without any transactions. This allows you to do show commands on the target node.
 
-## CLI Flags
+## CLI flags
 
 The following flags are available for the config commands
 

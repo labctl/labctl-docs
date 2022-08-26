@@ -1,6 +1,6 @@
-# Config engine
+# Config Engine
 
-::: tip
+::: info
 The config engine is shared with containerlab and all your templates and even the command line flags can be used from either `labctl config` or `containerlab config`
 
 Command line flag reference [config](/reference/config)
@@ -13,7 +13,7 @@ The Config Engine combines a powerful templating language with the knowledge of 
 Templates allow us to render CLI snippets using variables, the real power behind Config Engine comes from the knowledge of your network. At a high level this allows us:
 1. Declare logical variables as part of the topology. E.g add an IP address to a node/link.
 2. Easily template network links and nodes. Variables are pre-processed to allow templates to simply use local and far-end variables.
-3. Send commands to a router (we know the kind of router). This includes knowledge of how to log in and even enable configuration transactions when required.
+3. Send commands to a router (we know the kind of router). This includes knowledge of how to log in and even enable configuration transactions when required. This is covered in the [next section](/guide/config-engine-tx)
 
 The Config Engine uses Golang's Text Templates as the templating language. We'll cover the basics with many examples, but there are also great external resources covering the [Go template syntax](https://learn.hashicorp.com/tutorials/nomad/go-template-syntax).
 
@@ -94,7 +94,7 @@ The template names are specific on the input using the `--template-names` / `-l`
 
 
 
-## Magic Variables
+## Magic variables
 
 We've mentioned that link variables are included with the node variables, but there are also a lot of pre-processing of you variables. Typically when a a variable is used as input (or even generated as output) of this pre-processing step, it starts with `clab_`
 
@@ -134,7 +134,25 @@ Each link in the  `clab_links` array will have the following structure:
 | key 1..n         | Topo      | All the variables defined in the topo file                                                 |
 
 
-## Magic Variable Examples
+::: details Understanding auto-generated Link IPs
+
+Once you've defined a loopback address on each node `clab_system_ip`, Config Engine can auto-generate links IPs in `clab_link_ip`. The convention uses follows the following logic. It might be opinionated, but it is quicket than defining them statically :wink: (which you are free to do - see example #4 below)
+
+The last octet of the loopback address is taken from the nodes on either side of the link. Let's call them `<n1>` & `<n1>`. We ensure that `<n1>` is less than `<n2>`.
+
+The link IP is constructed by using these octets in the link IP
+
+| 10.`<n1>`.`<n2>`.`<side>`/31 |
+| ---------------------------- |
+
+where `<side>` indicates which node the link terminates on. The first IP in the link subnet will point to the node where we got n1 from, the second IP in this subnet will point to the node we go n2 from.
+Usually this will be 0 or 1, where 0 will be used on the side of `<n1>` and 1 for `<n2>`.
+
+When you have have mulitple links in a topology, we should not have duplicates IPs, so we use `clab_link_num` to determin unique IPs. by adding `2 x <clab_link_num>` to `<side> `. This is shown in example #4 below
+
+:::
+
+## Magic variable examples
 
 <script setup>
     import MagicVarsCe from '../.vitepress/components/magic_vars_ce.vue';
@@ -190,7 +208,7 @@ topology:
 
 <template #e3>
 
-You can have multiple links.
+You can have multiple links between two nodes. Adding a number to `clab_link_num` will ensure that the auto-generated `clab_link_name` and `clab_link_ip` variables are unique.
 
 ```yaml
 topology:
@@ -220,9 +238,9 @@ topology:
 
 <template #e4>
 
-Link requires variables in pairs (one for each end of the link), but if you specify one, this will be used on both sides. (note the **port** below)
+Link variables should be defined in pairs (one for each end of the link). If both ends of the link require the same variable, you can specify a single value And this will be used on both sides. (note the how `port` in the yaml below is processed into the local & far ends of the link.
 
-Magic variables can be defined by the user, as in the **clab_link_ip** on link 1 and **clab_link_name** on link 2
+Magic variables can be defined by the user, which will override any auto-generation magic. See it in action below with `clab_link_ip` on link 1 and `clab_link_name` on link 2
 
 ```yaml
   nodes:

@@ -63,7 +63,7 @@ labctl color --test
 The screenshot was made on Microsoft's Windows Terminal. It supports all the colors and a blinking `blinkrapid`
 :::
 
-## Labctl Settings
+## Labctl settings
 
 You can provide your own color settings by creating `~/.labctl.yml` and adding regex/color pairs under the colorize key
 

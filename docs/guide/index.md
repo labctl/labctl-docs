@@ -1,4 +1,4 @@
-# What is labctl
+# What is Labctl?
 
 Labctl is a collection of helper tools for network engineers, while configuring and experimenting with their own network labs.
 

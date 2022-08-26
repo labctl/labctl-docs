@@ -66,10 +66,19 @@ export default defineConfig({
         text: "Introduction",
         link: "/index/",
         items: [
-          { text: "What is labctl?", link: "/guide/" },
+          { text: "What is Labctl?", link: "/guide/" },
           { text: "Getting Started", link: "/guide/getting-started" },
-          { text: "Config Engine", link: "/guide/config-engine" },
-          { text: "Config Engine UI", link: "/guide/config-engine-ui" },
+          {
+            text: "Config Engine",
+            link: "/guide/config-engine",
+            items: [
+              {
+                text: "Transmit Commands",
+                link: "/guide/config-engine-tx",
+              },
+              { text: "User Interface", link: "/guide/config-engine-ui" },
+            ],
+          },
           { text: "Roadmap", link: "/guide/roadmap" },
         ],
       },
@@ -77,10 +86,10 @@ export default defineConfig({
         text: "Reference",
         link: "/reference",
         items: [
-          { text: "config", link: "/reference/config" },
-          { text: "serve", link: "/reference/serve" },
-          { text: "color", link: "/reference/color" },
-          { text: "install-completions", link: "/reference/completions" },
+          { text: "labctl config", link: "/reference/config" },
+          { text: "labctl serve", link: "/reference/serve" },
+          { text: "labctl color", link: "/reference/color" },
+          { text: "other", link: "/reference/misc" },
         ],
       },
       {
