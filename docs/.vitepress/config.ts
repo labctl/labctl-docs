@@ -1,4 +1,3 @@
-import { generateSitemap as sitemap } from "sitemap-ts";
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
@@ -7,7 +6,7 @@ export default defineConfig({
   description: "Take control of your lab environment",
 
   lastUpdated: true,
-  // cleanUrls: 'without-subfolders',
+  cleanUrls: "with-subfolders",
 
   head: [
     [
@@ -37,11 +36,9 @@ export default defineConfig({
       },
     ],
   ],
-  vite: {
-    buildEnd: () => {
-      sitemap();
-    },
-  },
+  // vite: {
+  //   buildEnd: buildEnd,
+  // },
   themeConfig: {
     logo: "/labctl1.svg",
     nav: [
@@ -64,7 +61,6 @@ export default defineConfig({
     sidebar: [
       {
         text: "Introduction",
-        link: "/index/",
         items: [
           { text: "What is Labctl?", link: "/guide/" },
           { text: "Getting Started", link: "/guide/getting-started" },
@@ -84,7 +80,6 @@ export default defineConfig({
       },
       {
         text: "Reference",
-        link: "/reference",
         items: [
           { text: "labctl config", link: "/reference/config" },
           { text: "labctl serve", link: "/reference/serve" },
@@ -94,7 +89,6 @@ export default defineConfig({
       },
       {
         text: "Examples",
-        link: "/examples/",
         items: [{ text: "Basic Usage", link: "/examples/basic" }],
       },
     ],

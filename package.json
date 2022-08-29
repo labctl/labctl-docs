@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
+    "postdocs:build": "node ./docs/.vitepress/build_sitemap.ts",
     "docs:serve": "vitepress serve docs"
   },
   "repository": {
@@ -21,13 +22,13 @@
   "homepage": "https://github.com/labctl/labctl-docs#readme",
   "dependencies": {
     "clipboard": "^2.0.11",
-    "vitepress": "^1.0.0-alpha.10",
+    "vitepress": "^1.0.0-alpha.12",
     "vue": "^3.2.37"
   },
   "devDependencies": {
     "js-yaml": "^4.1.0",
     "naive-ui": "^2.32.2",
-    "sitemap-ts": "^0.2.7",
+    "sitemap-ts": "^1.0.0",
     "v-network-graph": "^0.6.6",
     "vue3-json-viewer": "^2.2.2"
   }
