@@ -107,14 +107,14 @@ Let's start with a summary of all known magic variables, or jump straight to the
 
 The following variables indicate the basic structure and are mostly assembled directly from the topology file
 
-| Node Variables         | Description                                                                                                                    |
-| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
-| `clab_node`            | The node name. name.                                                                                                           |
-| `clab_kind`            | The node kind.                                                                                                                 |
-| `clab_management_ipv*` | When deployed you can get the management IPs. Currently only present in `containerlab` empty in `labctl`                       |
-| `clab_role`            | The role that will be used to determine the template file. If not specified in the `vars:` it will default to the node's kind. |
-| `clab_links`           | Populated with all the links connected to this node. The structure of the links can be seen below                              |
-| `clab_nodes`           | Populated with a dictionary of all the nodes in the topology                                                                   |
+| Node Variables         | Description                                                                                                                                      |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `clab_node`            | The node name. name.                                                                                                                             |
+| `clab_kind`            | The node kind.                                                                                                                                   |
+| `clab_management_ipv*` | When deployed you can get the management IPs. In `labctl` this is resolved from the node's long name. `containerlab` places this in `/etc/hosts` |
+| `clab_role`            | The role that will be used to determine the template file. If not specified in the `vars:` it will default to the node's kind.                   |
+| `clab_links`           | Populated with all the links connected to this node. The structure of the links can be seen below                                                |
+| `clab_nodes`           | Populated with a dictionary of all the nodes in the topology                                                                                     |
 
 On the nodes you can use the following input.
 

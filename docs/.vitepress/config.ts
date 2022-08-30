@@ -85,6 +85,7 @@ export default defineConfig({
           { text: "labctl serve", link: "/reference/serve" },
           { text: "labctl color", link: "/reference/color" },
           { text: "other", link: "/reference/misc" },
+          { text: "Template functions", link: "/reference/template-functions" },
         ],
       },
       {
