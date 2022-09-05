@@ -2,11 +2,11 @@
 layout: home
 
 hero:
+  name: Labctl
+  tagline: Take control of your lab. In the browser or commandline
   image:
     src: /labctl-r.svg
-    alt: Logo image
-  text: labctl
-  tagline: Take control of your lab
+    alt: Labctl
   actions:
     - theme: brand
       text: Getting Started

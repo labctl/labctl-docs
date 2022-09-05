@@ -6,7 +6,10 @@ export default defineConfig({
   description: "Take control of your lab environment",
 
   lastUpdated: true,
-  cleanUrls: "with-subfolders",
+
+  //without-subfolders
+  //cleanUrls: "with-subfolders",
+  cleanUrls: "without-subfolders",
 
   head: [
     [
@@ -89,7 +92,10 @@ export default defineConfig({
           { text: "labctl serve", link: "/reference/serve" },
           { text: "labctl color", link: "/reference/color" },
           { text: "other", link: "/reference/misc" },
-          { text: "Template functions", link: "/reference/template-functions" },
+          {
+            text: "Template functions",
+            link: "/reference/template-functions",
+          },
         ],
       },
       {
