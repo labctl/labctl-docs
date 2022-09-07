@@ -2,7 +2,7 @@ const sm = require("sitemap-ts");
 
 function buildEnd() {
   const opt = sm.resolveOptions({
-    hostname: "http://labctl.net/",
+    hostname: "https://labctl.net/",
     outDir: "docs/.vitepress/dist",
     exclude: ["/404"],
   });
