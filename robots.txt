@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://labctl.net/sitemap.xml
+Sitemap: https://labctl.net/sitemap.xml
