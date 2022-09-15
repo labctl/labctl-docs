@@ -1,7 +1,7 @@
 {
   "name": "labctl-docs",
   "version": "0.0.0",
-  "description": "labctl web frontend",
+  "description": "Labctl user documentation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,14 +22,14 @@
   "homepage": "https://github.com/labctl/labctl-docs#readme",
   "dependencies": {
     "clipboard": "^2.0.11",
-    "vitepress": "^1.0.0-alpha.13",
-    "vue": "^3.2.37"
+    "vitepress": "^1.0.0-alpha.15",
+    "vue": "^3.2.39"
   },
   "devDependencies": {
     "js-yaml": "^4.1.0",
-    "naive-ui": "^2.32.2",
+    "naive-ui": "^2.32.3",
     "sitemap-ts": "^1.0.0",
-    "v-network-graph": "^0.6.6",
+    "v-network-graph": "^0.6.8",
     "vue3-json-viewer": "^2.2.2"
   }
 }
