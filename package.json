@@ -29,7 +29,7 @@
     "js-yaml": "^4.1.0",
     "naive-ui": "^2.32.3",
     "sitemap-ts": "^1.0.0",
-    "v-network-graph": "^0.6.8",
+    "v-network-graph": "^0.6.9",
     "vue3-json-viewer": "^2.2.2"
   }
 }

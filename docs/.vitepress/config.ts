@@ -51,7 +51,7 @@ export default defineConfig({
     nav: [
       {
         text: "Guide",
-        link: "/guide/",
+        link: "/guide/intro",
         activeMatch: "/guide",
       },
       {
@@ -69,7 +69,7 @@ export default defineConfig({
       {
         text: "Introduction",
         items: [
-          { text: "What is Labctl?", link: "/guide/" },
+          { text: "What is Labctl?", link: "/guide/intro" },
           { text: "Getting Started", link: "/guide/getting-started" },
           {
             text: "Config Engine",
@@ -80,6 +80,7 @@ export default defineConfig({
                 link: "/guide/config-engine-tx",
               },
               { text: "User Interface", link: "/guide/config-engine-ui" },
+              { text: "Template Examples", link: "/guide/template-examples" },
             ],
           },
           { text: "Roadmap", link: "/guide/roadmap" },
