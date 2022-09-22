@@ -6,7 +6,7 @@ function buildEnd() {
     outDir: "docs/.vitepress/dist",
     exclude: ["/404"],
   });
-  opt.dynamicRoutes = sm.getRoutes(opt);
+  // opt.dynamicRoutes = sm.getRoutes(opt);
 
   // Add "/" to work with VitePress's cleanUrls="with-subfolders"
   // Github pages adds the slash & redirects to folder/
