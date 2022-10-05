@@ -15,9 +15,9 @@ When you are happy with the changes, simply create a Pull Request (PR)!
 The documentation is written using [Markdown in VitePress](https://vitepress.vuejs.org/guide/markdown).
 
 The three main folders correspond with the main navigation links:
-- [./docs/guide](./docs/guide/)
-- [./docs/reference](./docs/reference/)
-- [./docs/examples](./docs/examples/)
+- [./docs/guide](./docs/guide)
+- [./docs/reference](./docs/reference)
+- [./docs/examples](./docs/examples)
 
 VitePress site settings can be found in [config.ts](./docs/.vitepress/config.ts)
 

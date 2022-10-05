@@ -1,4 +1,4 @@
-# Basic Usage
+# Containerlab examples
 
 ## Get the example files
 
@@ -10,6 +10,8 @@ The containerlab github repo includes two topologies & templates with variables
 ## Run the lab - sros4.clab.yml
 
 1. Deploy the topology (required if you want to commit/compare/send)
+
+   `containerlab deploy -t sros4.clab.yml`
 2. Compare base config:
 
    `labctl config compare -p ./templates -l base -t sros4.clab.yml`

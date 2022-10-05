@@ -40,5 +40,10 @@
     },
     "cSpell.ignoreWords": [
 
-    ]
+    ],
+    "workbench.colorCustomizations": {
+      "titleBar.activeBackground": "#198519",
+      "titleBar.activeForeground": "#eee",
+      "titleBar.inactiveBackground": "#103610",
+  }
   }

@@ -52,7 +52,7 @@ export default defineConfig({
       {
         text: "Guide",
         link: "/guide/intro",
-        activeMatch: "/guide",
+        activeMatch: "/guide/",
       },
       {
         text: "Reference",
@@ -61,7 +61,7 @@ export default defineConfig({
       },
       {
         text: "Examples",
-        link: "/examples/basic",
+        link: "/examples/overview",
         activeMatch: "/examples/",
       },
     ],
@@ -101,7 +101,10 @@ export default defineConfig({
       },
       {
         text: "Examples",
-        items: [{ text: "Basic Usage", link: "/examples/basic" }],
+        items: [
+          { text: "Overview", link: "/examples/overview" },
+          { text: "Containerlab", link: "/examples/clab" },
+        ],
       },
     ],
 
