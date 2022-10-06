@@ -43,6 +43,34 @@ You can override the SSH settings by defining additional `vars` on the nodes.
 | `ssh_username` | The node's username. Defaults to the containerlab default username.     |
 | `ssh_password` | The node's password. Defaults to the containerlab default password.     |
 
+### Additional SSH settings
+
+The SSH module will also read your SSH config file, located at `~/.ssh/config`
+
+The example entry below applies to all hosts starting with `clab-`, sets the default username to admin and any other allowed SSH option.
+
+```
+Host clab-*
+    User admin
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    HostkeyAlgorithms +ssh-rsa
+```
+
+#### StrictHostKeyChecking & UserKnownHostsFile
+
+With StrictHostKeyChecking disabled, SSH will add any unknown host to the Known Hosts file, by default located at `~/.ssh/known_hosts`. If the host already exists in the Known Hosts and the host key is different, SSH will not connect to the host.
+
+Everytime you re-deploy nodes with containerlab, the hosts keys will change and to ease operation you could set the known hosts file to `/dev/null`, so that SSH will always accept the host key.
+
+#### HostkeyAlgorithms
+
+Recent versions of OpenSSH removed some Hostkey Algorithms and you might have to allow these until such time as the Network Operating system supports the latest key algorithms. This is done with `HostkeyAlgorithms`
+
+When you try to SSH to the node you should get a message similar to: <br>
+`Unable to negotiate with x.x.x.x port 22: no matching host key type found. Their offer: ssh-rsa,ssh-dss`
+
+
 ## Target non-containerlab labs
 
 Not all your labs might be deployed by containerlab, so when you have any other setup, you can use the ssh variables to target the correct nodes. The only thing you'll need is a valid topo file.
