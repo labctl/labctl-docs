@@ -75,7 +75,7 @@ const nodes = computed((): Array<Record<string, any>> => {
   if (!(active.value in example_data)) {
     return [];
   }
-  let d = example_data[active.value];
+  let d = (example_data as Record<string, Record<string, any>[]>)[active.value];
   if (!Array.isArray(d)) {
     d = [d];
   }

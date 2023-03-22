@@ -121,9 +121,9 @@ export default defineConfig({
     },
 
     algolia: {
-      appId: "D1QY7C5MLV",
-      apiKey: "3e1c21b075bcc58d22669ba593c5957e",
-      indexName: "labctl1",
+      appId: "IYKGQW8F28",
+      apiKey: "9c031d10d1efce3754f2911180cc36ec",
+      indexName: "labctl",
     },
   },
 });
