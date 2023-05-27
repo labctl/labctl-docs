@@ -97,19 +97,17 @@ will send the template `show-route-table_<role>.tmpl` to node R1 and R2 only
 
 ## Suggested commands
 
-You can add suggested commands to the frontend. They will be displayed on the Config Engine :house: home screen.
+You can add suggested commands to the project's `README.md` file. They will be displayed on the Config Engine :book: screen.
 
-Today this is done manually in the companion lab file (it should be done while the server is NOT running!)
+You can use Markdown links with **config** commands, for example:
+- `[compare -l ports](config:)`
+- `[commit -l ports](config:)`
+- `[send -l show-route-table](config:)`
 
-An exmaple of suggested commands in the labctl companion file:
+You can also use **path** links to highlight paths on the topology
+ - `[path 1](path:9,4,3,10)`
+ - `[path 2](path:9,4,11,12,10)`
+ - `[0,1,2,3,4,5,6,7,8,9,10,11,12](path:)`
 
-```yaml
-options:
-    commands:
-        - compare -l ports -f R1
-        - commit -l delete -f R1
-        - commit -l ports
-        - send -l show-lldp
-        - commit -l delete,ports,isis,adjsid,c7,bgp
-        - send -l show-route-table
-```
+When you use empty **config:** or **path:** URLs in the markdown links, the links's Text will be used. That measn these links are the same:
+- `[compare -l ports](config:)` == `[compare -l ports](config:compare -l ports)`
