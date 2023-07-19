@@ -5,14 +5,15 @@
 Once you have rendered templates you can transmit them to the nodes via SSH. They can either be sent as plain commands, or you can use transactions if supported by your node.
 
 These actions map to three commands:
+
 - `config send` - Send generated text to the node. This will typically be used for show commands, no configuration session is started on the node.
 - `config compare` - Start configuration priviledge level. Usually this is also the start of a transaction. Compare the results and discard any changes.
 - `config commit` - Start configuration priviledge level. Execute a commit transaction.
 
-
 ### Template pre-processing
 
 Generated templates are pre-processed before sending.
+
 - Empty whitespace will be removed. This includes blank lines & leading and trailing whitespace
 - If the node config supports comments, these will be removed
 
@@ -49,7 +50,7 @@ The SSH module will also read your SSH config file, located at `~/.ssh/config`
 
 The example entry below applies to all hosts starting with `clab-`, sets the default username to admin and any other allowed SSH option.
 
-```
+```config
 Host clab-*
     User admin
     UserKnownHostsFile /dev/null
@@ -69,7 +70,6 @@ Recent versions of OpenSSH removed some Hostkey Algorithms and you might have to
 
 When you try to SSH to the node you should get a message similar to: <br>
 `Unable to negotiate with x.x.x.x port 22: no matching host key type found. Their offer: ssh-rsa,ssh-dss`
-
 
 ## Target non-containerlab labs
 

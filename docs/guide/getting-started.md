@@ -18,7 +18,7 @@ labctl includes console commands, al list of these commands can be seen when you
 
 ::: details labctl --help
 
-```
+```bash
 Usage: labctl <command>
 
 Control your network lab.
@@ -43,6 +43,7 @@ Commands:
 
 Run "labctl <command> --help" for more information on a command.
 ```
+
 :::
 
 <!--@include:  ../.vitepress/snippet/start-ui.md -->

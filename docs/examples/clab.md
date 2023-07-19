@@ -23,14 +23,14 @@ Today the base config include Ports & ISIS.
 
 You can also start the Web Server on this topology
 
-```
+```bash
 labctl serve -p ./templates -t sros4.clab.yml
 ```
 
 And now you can execute the following from the UI:
+
 - `compare -l base`
 - `commit -l base`
-
 
 ## vr01.clab.yml
 

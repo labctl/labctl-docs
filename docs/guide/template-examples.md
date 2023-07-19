@@ -6,7 +6,7 @@ The following examples perform the same function. They extract a number from the
 
 The templates marked with asterisk (*) are not ideal, since it assumes you know if the numeric part of the router is one or more digits.
 
-```
+```jinja
 {{  "PE9"  | slice 2 0 }}
 {{  "PE12" | slice 2 0 }}
 

@@ -27,4 +27,3 @@ While labctl uses the containerlab topology file format (`.clab.yml`) to represe
 - Add some color to your CLI - `labctl color`
 
   Add custom color to IP addresses, protocol states or any other text you would like to visually enhance. Labctl uses your standard SSH/telnet tools, but only adds the relevant color locally.
-
