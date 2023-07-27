@@ -25,11 +25,11 @@
   },
   "devDependencies": {
     "js-yaml": "^4.1.0",
-    "naive-ui": "^2.32.3",
-    "sitemap-ts": "^1.1.0",
-    "v-network-graph": "^0.6.10",
-    "vitepress": "^1.0.0-alpha.19",
-    "vue": "^3.2.40",
+    "naive-ui": "^2.34.4",
+    "sitemap-ts": "^1.4.0",
+    "v-network-graph": "^0.9.5",
+    "vitepress": "^1.0.0-beta.5",
+    "vue": "^3.3.4",
     "vue3-json-viewer": "^2.2.2"
   }
 }
