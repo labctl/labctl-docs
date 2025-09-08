@@ -46,7 +46,7 @@ const combined = ref(true);
 const v_topo = {
   nodes: {
     R4: {
-      kind: "vr-sros",
+      kind: "nokia_srsim",
       config: { vars: {} },
     },
   },
@@ -61,11 +61,11 @@ const v_topov = {
 v_topo.nodes.R4.config.vars = v_topov;
 
 const v_ce = {
-  clab_kind: "vr-sros",
+  clab_kind: "nokia_srsim",
   clab_management_ipv4: "",
   clab_management_ipv6: "",
   clab_node: "R4",
-  clab_role: "vr-sros",
+  clab_role: "nokia_srsim",
   clab_links: [
     {
       clab_far: {
@@ -109,7 +109,7 @@ const v_ce = {
   ],
   clab_nodes: {
     CE1: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -134,7 +134,7 @@ const v_ce = {
       network: "172.31.1.0/24",
     },
     CE3: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -159,7 +159,7 @@ const v_ce = {
       network: "172.31.3.0/24",
     },
     CE4: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -184,7 +184,7 @@ const v_ce = {
       network: "172.31.4.0/24",
     },
     CE6: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -209,7 +209,7 @@ const v_ce = {
       network: "172.31.6.0/24",
     },
     R1: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -254,14 +254,14 @@ const v_ce = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R1",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.1/32",
       ipv4_sid_label: 14001,
       isis_iid: [1],
       ssh: "172.20.20.7:22",
     },
     R2: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -306,13 +306,13 @@ const v_ce = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R2",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.2/32",
       ipv4_sid_label: 14002,
       isis_iid: [1],
     },
     R3: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -357,13 +357,13 @@ const v_ce = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R3",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.3/32",
       ipv4_sid_label: 14003,
       isis_iid: [1],
     },
     R4: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -408,13 +408,13 @@ const v_ce = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R4",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.4/32",
       ipv4_sid_label: 14004,
       isis_iid: [1],
     },
     R5: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -472,13 +472,13 @@ const v_ce = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R5",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.5/32",
       ipv4_sid_label: 14005,
       isis_iid: [1],
     },
     R6: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -536,13 +536,13 @@ const v_ce = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R6",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.6/32",
       ipv4_sid_label: 14006,
       isis_iid: [1],
     },
     RR: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -574,7 +574,7 @@ const v_ce = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "RR",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.10/32",
       ipv4_sid_label: 14010,
       isis_iid: [1],
@@ -583,11 +583,11 @@ const v_ce = {
 };
 
 const v_all = {
-  clab_kind: "vr-sros",
+  clab_kind: "nokia_srsim",
   clab_management_ipv4: "",
   clab_management_ipv6: "",
   clab_node: "R4",
-  clab_role: "vr-sros",
+  clab_role: "nokia_srsim",
   clab_system_ip: "192.0.2.4/32",
   ipv4_sid_label: 14004,
   isis_iid: [1],
@@ -634,7 +634,7 @@ const v_all = {
   ],
   clab_nodes: {
     CE1: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -659,7 +659,7 @@ const v_all = {
       network: "172.31.1.0/24",
     },
     CE3: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -684,7 +684,7 @@ const v_all = {
       network: "172.31.3.0/24",
     },
     CE4: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -709,7 +709,7 @@ const v_all = {
       network: "172.31.4.0/24",
     },
     CE6: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -734,7 +734,7 @@ const v_all = {
       network: "172.31.6.0/24",
     },
     R1: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -779,14 +779,14 @@ const v_all = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R1",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.1/32",
       ipv4_sid_label: 14001,
       isis_iid: [1],
       ssh: "172.20.20.7:22",
     },
     R2: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -831,13 +831,13 @@ const v_all = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R2",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.2/32",
       ipv4_sid_label: 14002,
       isis_iid: [1],
     },
     R3: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -882,13 +882,13 @@ const v_all = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R3",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.3/32",
       ipv4_sid_label: 14003,
       isis_iid: [1],
     },
     R4: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -933,13 +933,13 @@ const v_all = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R4",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.4/32",
       ipv4_sid_label: 14004,
       isis_iid: [1],
     },
     R5: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -997,13 +997,13 @@ const v_all = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R5",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.5/32",
       ipv4_sid_label: 14005,
       isis_iid: [1],
     },
     R6: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -1061,13 +1061,13 @@ const v_all = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "R6",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.6/32",
       ipv4_sid_label: 14006,
       isis_iid: [1],
     },
     RR: {
-      clab_kind: "vr-sros",
+      clab_kind: "nokia_srsim",
       clab_links: [
         {
           clab_far: {
@@ -1099,7 +1099,7 @@ const v_all = {
       clab_management_ipv4: "",
       clab_management_ipv6: "",
       clab_node: "RR",
-      clab_role: "vr-sros",
+      clab_role: "nokia_srsim",
       clab_system_ip: "192.0.2.10/32",
       ipv4_sid_label: 14010,
       isis_iid: [1],

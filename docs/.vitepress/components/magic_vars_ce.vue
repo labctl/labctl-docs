@@ -94,7 +94,7 @@ const combined = ref(true);
 const v_topo = {
   nodes: {
     R4: {
-      kind: "vr-sros",
+      kind: "nokia_srsim",
       config: { vars: {} },
     },
   },

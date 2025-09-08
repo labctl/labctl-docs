@@ -65,26 +65,4 @@ The screenshot was made on Microsoft's Windows Terminal. It supports all the col
 
 ## Labctl settings
 
-You can provide your own color settings by creating `~/.labctl.yml` and adding regex/color pairs under the colorize key
-
-Labctl includes default settings, they are kept [here](https://github.com/labctl/labctl/blob/main/helpers/settings.yml) in case you want to propose updates, below an extract from settings.
-
-```yaml
-colorize:
-  - regex: '\d+\.\d+\.\d+\.\d+(/\d+)?'
-    color: magenta
-  - regex: "(?i)\b(true|valid|used)\b"
-    color: hiwhite,bold
-  - regex: "(?i)(false|none)"
-    color: hired
-  - regex: shutdown
-    color: yellow
-  - regex: '(?i)\b(error|down)\b'
-    color: red
-  - regex: '(?i)(\benabled?|\bup\b)'
-    color: green
-  - regex: "(?i)\bdisabled?"
-    color: yellow
-```
-
-The setting are displayed when you run `labctl color --test` or when you add the debug flag `labctl -d color ...`
+See [settings](./settings.md)

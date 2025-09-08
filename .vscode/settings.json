@@ -1,14 +1,16 @@
 {
     "eslint.run": "onType",
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     },
-    "volar.tsPlugin": true,
     "cSpell.words": [
+      "clab",
       "containerlab",
       "dblclick",
       "golang",
       "labctl",
+      "scrapligo",
+      "srsim",
       "tmpl",
       "topo",
       "vars",

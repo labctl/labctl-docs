@@ -113,17 +113,21 @@ setDesiredVersion() {
     TAG=$DESIRED_VERSION
     TAG_WO_VER=$(echo "${TAG}" | cut -c 2-)
 
-    local desired_url="https://api.github.com/repos/$REPO_NAME/tags/$DESIRED_VERSION"
+    if !FORCE_DL; then
 
-    if curl_exists; then
-      if ! curl -s -o /dev/null --fail $desired_url; then
-        echo "release $DESIRED_VERSION not found"
-        exit 1
-      fi
-    else
-      if ! wget -q $desired_url; then
-        echo "release $DESIRED_VERSION not found"
-        exit 1
+      local desired_url="https://api.github.com/repos/$REPO_NAME/releases/tag/$DESIRED_VERSION"
+      echo $desired_url
+
+      if curl_exists; then
+        if ! curl -s -o /dev/null --fail $desired_url; then
+          echo "release $DESIRED_VERSION not found"
+          exit 1
+        fi
+      else
+        if ! wget -q $desired_url; then
+          echo "release $DESIRED_VERSION not found"
+          exit 1
+        fi
       fi
     fi
   fi
@@ -253,7 +257,7 @@ help() {
   echo -e "\t[--verify-checksum]  ->> verify checksum of the downloaded file"
 }
 
-# removes temporary directory used to download artefacts
+# removes temporary directory used to download artifacts
 cleanup() {
   if [[ -d "${TMP_ROOT:-}" ]]; then
     rm -rf "$TMP_ROOT"
@@ -275,6 +279,7 @@ while [[ $# -gt 0 ]]; do
       shift
       if [[ $# -ne 0 ]]; then
         export DESIRED_VERSION="v${1}"
+        echo version=$DESIRED_VERSION
       else
         echo -e "Please provide the desired version. e.g. --version 0.1.1"
         exit 0
@@ -288,6 +293,9 @@ while [[ $# -gt 0 ]]; do
       ;;
     '--use-pkg')
       USE_PKG="true"
+      ;;
+    '--force')
+      FORCE_DL="true"
       ;;
     '--help' | -h)
       help

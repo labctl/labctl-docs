@@ -1,13 +1,13 @@
 # Template functions
 
 Available template functions include:
-- [Gomplate](https://docs.gomplate.ca/) template functions
 
-    Gomplate provides an extensive list of template functions.
-    Please refer to the Gomplate documentation for all available [functions](https://docs.gomplate.ca/)
 - Config Engine's [custom](https://github.com/kellerza/template) functions
 
     Several custom functions were added for Config Engine. They are documented on this page.
+
+- Containerlab's [template functions](https://github.com/srl-labs/containerlab/blob/v0.69.3/utils/template.go#L18) functions
+
 - Golang's [text/template](https://pkg.go.dev/text/template#hdr-Functions) functions
 
     Functions from Golang's standard library
@@ -20,7 +20,7 @@ A couple of custom functions can be used in Config Engine. They are documented b
 
 These functions can be used in a template to indicate required input parameters.
 
-- `expect` tests if the input is a certain type or in some cases even wihin an allowable range.
+- `expect` tests if the input is a certain type or in some cases even within an allowable range.
     If the input matches the expected type, the function returns and will not affect your template.
     If the input does not match, an error will be raised and template execution will be stopped.
 
@@ -46,8 +46,8 @@ These functions can be used in a template to indicate required input parameters.
 
 ## 👉 String manipulation
 
-There are three string manulpilation functions:
-- `contains <substr> <value>` tests is substr is presnt in the value.
+There are three string manipulation functions:
+- `contains <substr> <value>` tests is substr is present in the value.
 - `join <separator> <values>` joins a list of values into a single string, using the specified seperator
 - `split <seperator> <value>` splits a string into a list
 

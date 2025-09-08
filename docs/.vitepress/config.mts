@@ -9,7 +9,7 @@ export default defineConfig({
 
   //without-subfolders
   //cleanUrls: "with-subfolders",
-  cleanUrls: "without-subfolders",
+  cleanUrls: true,
 
   head: [
     [
@@ -94,6 +94,10 @@ export default defineConfig({
           { text: "labctl color", link: "/reference/color" },
           { text: "other", link: "/reference/misc" },
           {
+            text: "settings",
+            link: "/reference/settings",
+          },
+          {
             text: "Template functions",
             link: "/reference/template-functions",
           },
@@ -117,7 +121,7 @@ export default defineConfig({
 
     footer: {
       message: "",
-      copyright: "Apache 2.0 | Copyright © 2022 Johann Kellerman",
+      copyright: "Apache 2.0 | Copyright © 2022-2025 Johann Kellerman",
     },
 
     algolia: {

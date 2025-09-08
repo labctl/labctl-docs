@@ -7,8 +7,8 @@ Once you have rendered templates you can transmit them to the nodes via SSH. The
 These actions map to three commands:
 
 - `config send` - Send generated text to the node. This will typically be used for show commands, no configuration session is started on the node.
-- `config compare` - Start configuration priviledge level. Usually this is also the start of a transaction. Compare the results and discard any changes.
-- `config commit` - Start configuration priviledge level. Execute a commit transaction.
+- `config compare` - Start configuration privilege level. Usually this is also the start of a transaction. Compare the results and discard any changes.
+- `config commit` - Start configuration privilege level. Execute a commit transaction.
 
 ### Template pre-processing
 
@@ -19,7 +19,7 @@ Generated templates are pre-processed before sending.
 
 ## Transport
 
-Containerlab Kinds (from the topology file) will be mapped to Scrapligo's platforms, and these platforms contain the knowledge of how to authenticate to the node and how to do any required priviledge level changes for configuration etc. The labctl repo contains details about transactions.
+Containerlab Kinds (from the topology file) will be mapped to Scrapligo's platforms, and these platforms contain the knowledge of how to authenticate to the node and how to do any required privilege level changes for configuration etc. The labctl repo contains details about transactions.
 
 Scrapligo platforms are available [here](https://github.com/scrapli/scrapligo/tree/main/assets/platforms)
 
@@ -50,12 +50,12 @@ The SSH module will also read your SSH config file, located at `~/.ssh/config`
 
 The example entry below applies to all hosts starting with `clab-`, sets the default username to admin and any other allowed SSH option.
 
-```config
+```ssh-config
 Host clab-*
     User admin
     UserKnownHostsFile /dev/null
     StrictHostKeyChecking no
-    HostkeyAlgorithms +ssh-rsa
+    # HostkeyAlgorithms +ssh-rsa
 ```
 
 #### StrictHostKeyChecking & UserKnownHostsFile
@@ -75,4 +75,4 @@ When you try to SSH to the node you should get a message similar to: <br>
 
 Not all your labs might be deployed by containerlab, so when you have any other setup, you can use the ssh variables to target the correct nodes. The only thing you'll need is a valid topo file.
 
-With `ssh_host` and `ssh_port` you can target physical nodes or even nodes deployed directly with `virsh` over one or mulitple hosts.
+With `ssh_host` and `ssh_port` you can target physical nodes or even nodes deployed directly with `virsh` over one or multiple hosts.

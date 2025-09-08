@@ -1,7 +1,7 @@
-const sm = require("sitemap-ts");
+import { resolveOptions, generateSitemap } from "sitemap-ts";
 
 function buildEnd() {
-  const opt = sm.resolveOptions({
+  const opt = resolveOptions({
     hostname: "https://labctl.net/",
     outDir: "docs/.vitepress/dist",
     exclude: ["/404"],
@@ -14,7 +14,7 @@ function buildEnd() {
   //   route.endsWith("/") ? route : route + "/"
   // );
 
-  sm.generateSitemap(opt);
+  generateSitemap(opt);
 }
 
 buildEnd();

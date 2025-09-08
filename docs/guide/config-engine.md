@@ -42,15 +42,15 @@ Similar to the rest of the topology file, defaults can be provided for variables
 ```yaml
 topology:
   kinds:
-    vr-sros:
+    nokia_srsim:
       image: ghcr.io/nokia/srlinux
       config:
           key: value
   nodes:
     pe_1:
-      kind: vr-sros
+      kind: nokia_srsim
     pe_2:
-      kind: vr-sros
+      kind: nokia_srsim
 ```
 
 :::

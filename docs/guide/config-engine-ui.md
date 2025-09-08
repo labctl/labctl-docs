@@ -1,6 +1,6 @@
 # Config Engine User Interface
 
-The web user interface allows you to visualize your topology, inspect magic variables and transmit commands direclty from your favorite web browser.
+The web user interface allows you to visualize your topology, inspect magic variables and transmit commands directly from your favorite web browser.
 
 <!--@include:  ../.vitepress/snippet/start-ui.md -->
 
@@ -43,7 +43,7 @@ From here you can test these variables on templates.
 ```yaml
  nodes:
   R4:
-    kind: vr-sros
+    kind: nokia-srsim
     config:
       vars:
         clab_system_ip: 192.0.2.4/32
@@ -108,6 +108,6 @@ You can also use **path** links to highlight paths on the topology
 - `[path 2](path:9,4,11,12,10)`
 - `[0,1,2,3,4,5,6,7,8,9,10,11,12](path:)`
 
-When you use empty **config:** or **path:** URLs in the markdown links, the links's Text will be used. That measn these links are the same:
+When you use empty **config:** or **path:** URLs in the markdown links, the links's Text will be used. That means these links are the same:
 
 - `[compare -l ports](config:)` == `[compare -l ports](config:compare -l ports)`
