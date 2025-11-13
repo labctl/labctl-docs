@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^4.1.1",
     "naive-ui": "^2.42.0",
     "sitemap-ts": "^1.10.1",
     "v-network-graph": "^0.9.21",
